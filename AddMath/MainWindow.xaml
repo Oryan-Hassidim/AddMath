@@ -1,0 +1,72 @@
+﻿<Window
+    x:Class="AddMath.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AddMath"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Me"
+    Title="AddCustomMath"
+    Width="400"
+    Height="350"
+    MaxHeight="350"
+    d:Opacity="1"
+    Activated="Me_Activated"
+    AllowsTransparency="True"
+    Background="Transparent"
+    DataContext="{Binding ElementName=Me}"
+    FontSize="16"
+    FontStyle="Normal"
+    KeyDown="Me_KeyDown"
+    Loaded="Me_Loaded"
+    MouseDown="Me_MouseDown"
+    Opacity="{Binding IsActive}"
+    ShowInTaskbar="False"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem
+                Command="{Binding RefreshSuggestionsCommand}"
+                Header="Refresh Suggestions"
+                InputGestureText="F5" />
+            <MenuItem
+                Command="{Binding OpenSuggestionsFileCommand}"
+                Header="Edit Suggestions File"
+                InputGestureText="F12" />
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox
+            x:Name="SearchBox"
+            HorizontalAlignment="Left"
+            AutoWordSelection="True"
+            Background="#F4FFFFFF"
+            BorderThickness="0"
+            PreviewKeyDown="SearchBox_KeyDown"
+            TextChanged="SearchBox_TextChanged" />
+        <ListView
+            x:Name="SuggestionsList"
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            ItemsSource="{Binding LiveSuggestions}"
+            PreviewKeyDown="SuggestionsList_PreviewKeyDown">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Text}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
