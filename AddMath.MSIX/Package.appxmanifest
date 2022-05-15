@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="dfba1eb0-7e8f-4e7c-89ad-497950828016"
-    Publisher="CN=Oryan Hassidim"
+    Name="954bda2c-6776-413a-b31f-7036c347675e"
+    Publisher="CN=oryan"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>AddMathMSIX</DisplayName>
-    <PublisherDisplayName>Oryan</PublisherDisplayName>
+    <DisplayName>AddMath.MSIX</DisplayName>
+    <PublisherDisplayName>oryan</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
@@ -31,8 +31,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="AddMath"
-        Description="Intellisence for equations in MS Word."
+        DisplayName="Add Math"
+        Description="Add Math - Intellisence for MS Word equations"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
         Square44x44Logo="Images\Square44x44Logo.png">
