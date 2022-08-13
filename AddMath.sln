@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddMath", "AddMath\AddMath.
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "AddMath.MSIX", "AddMath.MSIX\AddMath.MSIX.wapproj", "{DCDDFF5D-051B-43B8-B531-082BD3339E16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddMath.WordAddIn", "AddMath.WordAddIn\AddMath.WordAddIn.csproj", "{CF2834B7-7844-4015-991E-E2904777D781}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,26 @@ Global
 		{DCDDFF5D-051B-43B8-B531-082BD3339E16}.Release|x86.ActiveCfg = Release|x86
 		{DCDDFF5D-051B-43B8-B531-082BD3339E16}.Release|x86.Build.0 = Release|x86
 		{DCDDFF5D-051B-43B8-B531-082BD3339E16}.Release|x86.Deploy.0 = Release|x86
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|ARM.Build.0 = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|x64.Build.0 = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Debug|x86.Build.0 = Debug|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|ARM.Build.0 = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|ARM64.Build.0 = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|x64.ActiveCfg = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|x64.Build.0 = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|x86.ActiveCfg = Release|Any CPU
+		{CF2834B7-7844-4015-991E-E2904777D781}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

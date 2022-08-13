@@ -15,6 +15,7 @@
     AllowsTransparency="True"
     Background="Transparent"
     DataContext="{Binding ElementName=Me}"
+    Deactivated="Me_Deactivated"
     FontSize="16"
     FontStyle="Normal"
     KeyDown="Me_KeyDown"

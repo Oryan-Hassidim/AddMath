@@ -35,10 +35,11 @@ namespace AddMath
         [DllImport("User32.dll")]
         static extern int SetForegroundWindow(IntPtr point);
 
-        private Dictionary<string, int> newWords = new();
-        private Dictionary<Suggestion, string> Suggestions = new();
-        private SortedSet<Suggestion> startsWith = new(), contains = new();
-        private StringBuilder matrix = new();
+        private readonly Dictionary<string, int> newWords = new();
+        private readonly Dictionary<Suggestion, string> Suggestions = new();
+        private readonly SortedSet<Suggestion> startsWith = new();
+        private readonly SortedSet<Suggestion> contains = new();
+        private readonly StringBuilder matrix = new();
         private string file;
         private double factor = 1;
 
@@ -47,7 +48,7 @@ namespace AddMath
         private Word.Application instance;
         private Process p;
 
-        public async Task loadSuggestions()
+        private async Task loadSuggestions()
         {
             await Task.Run(() =>
             {
@@ -61,13 +62,13 @@ namespace AddMath
         }
         public void ActivateMe()
         {
-            SetForegroundWindow(Process.GetCurrentProcess().MainWindowHandle);
+            _ = SetForegroundWindow(Process.GetCurrentProcess().MainWindowHandle);
         }
         public void ActivateWord()
         {
             p.Refresh();
             IntPtr h = p.MainWindowHandle;
-            SetForegroundWindow(h);
+            _ = SetForegroundWindow(h);
         }
         private bool FindRunningWord()
         {
@@ -77,7 +78,7 @@ namespace AddMath
             }
             catch (COMException)
             {
-                MessageBox.Show("There is't Word Running.");
+                MessageBox.Show("There is't Word Running.", "Add Math");
                 Close();
                 return false;
             }
@@ -148,7 +149,7 @@ namespace AddMath
                         Type = SuggestionType.Matrix
                     });
                     break;
-                case 3 when int.TryParse(s.Slice(0, 2), out int value) && s[2] == 'b':
+                case 3 when int.TryParse(s[..2], out int value) && s[2] == 'b':
                     h = value / 10;
                     w = value % 10;
                     LiveSuggestions.Add(new()
@@ -234,7 +235,7 @@ namespace AddMath
                     ActivateWord();
                     Forms.SendKeys.SendWait(" ");
                     break;
-                case 3 when int.TryParse(s.Slice(0, 2), out int value) && s[2] == 'b':
+                case 3 when int.TryParse(s[..2], out int value) && s[2] == 'b':
                     h = value / 10;
                     w = value % 10 - 1;
                     row = string.Concat(Enumerable.Repeat("&", w));
@@ -340,14 +341,14 @@ namespace AddMath
                 DragMove();
         }
 
-        [ICommand]
+        //[ICommand]
         private async void RefreshSuggestions()
         {
             await loadSuggestions();
             SearchBox.Focus();
         }
 
-        [ICommand]
+        //[ICommand]
         private void OpenSuggestionsFile()
         {
             new Process
@@ -371,6 +372,7 @@ namespace AddMath
             Top = (5 + ttop) / factor;
             Left = (5 + left) / factor - 4;
             SearchBox.Focus();
+            this.Visibility = Visibility.Visible;
         }
 
         private async void Me_Loaded(object sender, RoutedEventArgs e)
@@ -421,5 +423,10 @@ namespace AddMath
 
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void Me_Deactivated(object sender, EventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
     }
 }
