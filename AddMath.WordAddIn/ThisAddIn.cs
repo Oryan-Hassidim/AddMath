@@ -20,7 +20,7 @@ namespace AddMath.WordAddIn
 
     [ComVisible(true)]
     [ClassInterface(ClassInterfaceType.None)]
-    public class AddMathObject : IAddMathObject
+    public class AddMathObject : IAddMathObject, IDisposable
     {
         private Suggestions _suggestions;
         private Suggestions Suggestions => _suggestions ??= new Suggestions();
@@ -33,6 +33,11 @@ namespace AddMath.WordAddIn
         {
             Suggestions.Show();
             Suggestions.Activate();
+        }
+
+        public void Dispose()
+        {
+            _suggestions?.Dispose();
         }
     }
     public partial class ThisAddIn
@@ -52,6 +57,7 @@ namespace AddMath.WordAddIn
         
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            addMathObject.Dispose();
         }
 
         #region VSTO generated code

@@ -20,25 +20,20 @@ namespace AddMath.WordAddIn
         private readonly SortedSet<Suggestion> startsWith = new();
         private readonly SortedSet<Suggestion> contains = new();
         private readonly StringBuilder matrix = new();
-        private readonly string file;
         private BindingList<Suggestion> LiveSuggestions { get; set; } = new();
         private Microsoft.Office.Interop.Word.Application instance => Globals.ThisAddIn.Application;
 
         public string Theme { get; set; }
 
-        private readonly string[] splitter = new string[] { "~~~" };
-
         private async Task loadSuggestions()
         {
-            await Task.Run(() =>
+            _Suggestions.Clear();
+            foreach (var kv in Settings.Default.SelectedSuggestions)
             {
-                _Suggestions.Clear();
-                foreach (var kv in Settings.Default.SuggestionsDictionary[Theme])
-                {
-                    _Suggestions.Add(new() { Text = kv.Key, Type = SuggestionType.Text }, kv.Value);
-                }
-            });
+                _Suggestions.Add(new() { Text = kv.Key, Type = SuggestionType.Text }, kv.Value);
+            }
             SuggestionsList.BeginUpdate();
+            LiveSuggestions.Clear();
             foreach (var item in _Suggestions.Keys.OrderBy(s => s.Text))
             {
                 LiveSuggestions.Add(item);
@@ -49,16 +44,14 @@ namespace AddMath.WordAddIn
         #region Suggestions
         public Suggestions()
         {
-            var folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            if (folder == null)
-                throw new FileNotFoundException("The File Not Found!");
-            file = Path.Combine(folder, "Math.txt");
             InitializeComponent();
             SuggestionsList.DataSource = LiveSuggestions;
         }
         private async void Suggestions_Load(object sender, EventArgs e)
         {
             await loadSuggestions();
+            Settings.Default.SelectedSuggestionsChanged += async (s, e) => await loadSuggestions();
+            Settings.Default.SettingsSaving += async (s, e) => await loadSuggestions();
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -76,10 +69,11 @@ namespace AddMath.WordAddIn
             Left = left - 5;
             SearchTextBox.Focus();
         }
-        private void Suggestions_Leave(object sender, EventArgs e)
+        private void Suggestions_Deactivate(object sender, EventArgs e)
         {
             Hide();
         }
+
         private void Suggestions_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -203,12 +197,9 @@ namespace AddMath.WordAddIn
                 case Keys.Down:
                     if (SuggestionsList.SelectedIndex == -1)
                         SuggestionsList.SelectedIndex = 0;
-                    //var listBoxItem = (ListViewItem)SuggestionsList
-                    //    .ItemContainerGenerator
-                    //    .ContainerFromItem(SuggestionsList.SelectedItem);
-                    //e.Handled = true;
-                    //listBoxItem.Focus();
                     SuggestionsList.Focus();
+                    if (SuggestionsList.SelectedIndex < SuggestionsList.Items.Count - 1)
+                        SuggestionsList.SelectedIndex++;
                     break;
                 case Keys.Escape:
                 case Keys.Back when SearchTextBox.Text.Length == 0:
@@ -225,6 +216,19 @@ namespace AddMath.WordAddIn
         #endregion
 
         #region SuggestionsList
+        private void SuggestionsList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up && SuggestionsList.SelectedIndex == 0)
+            {
+                SearchTextBox.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+        private void SuggestionsList_DoubleClick(object sender, EventArgs e)
+        {
+            AddSelectedSuggestionFromList();
+        }
         #endregion
 
 
@@ -294,14 +298,15 @@ namespace AddMath.WordAddIn
                             MessageBoxDefaultButton.Button1);
                         if (r == DialogResult.Yes)
                         {
-                            File.AppendAllText(file, $"\n{t}~~~\\{t} ");
+                            Settings.Default.SelectedSuggestions.Add(t, t);
+                            Settings.Default.Save();
                             await loadSuggestions();
                         }
                     }
                 }
                 else newWords.Add(t, 1);
 
-                instance.Selection.TypeText("\\" + t);
+                instance.Selection.TypeText(@"\" + t);
                 SendKeys.SendWait(" ");
                 SearchTextBox.Clear();
                 return;

@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace AddMath.WordAddIn.Properties {
+    using System;
     
     
     /// <summary>
@@ -18,7 +19,7 @@ namespace AddMath.WordAddIn.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -56,6 +57,16 @@ namespace AddMath.WordAddIn.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {\rtf1\adeflang1037\ansi\ansicpg1255\uc1\adeff42\deff0\stshfdbch42\stshfloch31506\stshfhich31506\stshfbi31507\deflang1033\deflangfe1033\themelang1033\themelangfe0\themelangcs1037{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f2\fbidi \fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+        ///{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}{\f42\fbidi \fswiss\fcharset0\fprq2{\*\panose 00000000000000000000}FrankRuehl;} [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string VBA {
+            get {
+                return ResourceManager.GetString("VBA", resourceCulture);
             }
         }
     }

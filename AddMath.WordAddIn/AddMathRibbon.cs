@@ -1,4 +1,5 @@
-﻿using Microsoft.Office.Interop.Word;
+﻿using AddMath.WordAddIn.Properties;
+using Microsoft.Office.Interop.Word;
 using Microsoft.Office.Tools.Ribbon;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,22 @@ namespace AddMath.WordAddIn
     {
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
-            Globals.ThisAddIn.AddMathObject.
             //TODO: multi lingual
+            initializeThemeItems();
+            Settings.Default.SettingsSaving += (s, e) => initializeThemeItems();
+        }
+
+        private void initializeThemeItems()
+        {
+            ThemeDropBox.Items.Clear();
+            foreach (var item in Settings.Default.SuggestionsDictionary.Keys)
+            {
+                var ribbonItem = Factory.CreateRibbonDropDownItem();
+                ribbonItem.Label = item;
+                ThemeDropBox.Items.Add(ribbonItem);
+                if (Settings.Default.Selected == item)
+                    ThemeDropBox.SelectedItem = ribbonItem;
+            }            
         }
 
         private void AddMathButton_Click(object sender, RibbonControlEventArgs e)
@@ -23,7 +38,8 @@ namespace AddMath.WordAddIn
 
         private void EditSuggestions_Click(object sender, RibbonControlEventArgs e)
         {
-            
+            EditSuggestions editSuggestions = new();
+            editSuggestions.Show();
         }
 
         private void InitializeButton_Click(object sender, RibbonControlEventArgs e)
@@ -37,6 +53,12 @@ namespace AddMath.WordAddIn
 
             var vba = new VBA();
             vba.Show();
+        }
+
+        private void ThemeDropBox_SelectionChanged(object sender, RibbonControlEventArgs e)
+        {
+            Settings.Default.Selected = ThemeDropBox.SelectedItem.Label;
+            Settings.Default.Save();
         }
     }
 }

@@ -49,6 +49,7 @@
             this.SearchTextBox.AcceptsReturn = true;
             this.SearchTextBox.AcceptsTab = true;
             resources.ApplyResources(this.SearchTextBox, "SearchTextBox");
+            this.SearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTextBox.Name = "SearchTextBox";
             this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             this.SearchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchTextBox_KeyDown);
@@ -59,6 +60,8 @@
             this.SuggestionsList.DisplayMember = "Text";
             this.SuggestionsList.FormattingEnabled = true;
             this.SuggestionsList.Name = "SuggestionsList";
+            this.SuggestionsList.DoubleClick += new System.EventHandler(this.SuggestionsList_DoubleClick);
+            this.SuggestionsList.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SuggestionsList_KeyDown);
             // 
             // OKButton
             // 
@@ -90,9 +93,9 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.TransparencyKey = System.Drawing.Color.Lime;
             this.Activated += new System.EventHandler(this.Suggestions_Activated);
+            this.Deactivate += new System.EventHandler(this.Suggestions_Deactivate);
             this.Load += new System.EventHandler(this.Suggestions_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Suggestions_KeyDown);
-            this.Leave += new System.EventHandler(this.Suggestions_Leave);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

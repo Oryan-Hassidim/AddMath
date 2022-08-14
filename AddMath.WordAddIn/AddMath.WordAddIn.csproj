@@ -38,8 +38,8 @@
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
-    <ProductName>AddMath.WordAddIn</ProductName>
-    <PublisherName />
+    <ProductName>Add Math - Word Add-In</ProductName>
+    <PublisherName>Oryan Hassdim</PublisherName>
     <SupportUrl />
     <FriendlyName>AddMath.WordAddIn</FriendlyName>
     <OfficeApplicationDescription />
@@ -93,6 +93,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
     <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
     <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <!--
 	This section defines properties that are set when the "Release" configuration is selected.
@@ -204,11 +205,24 @@
 	can be found.
   -->
   <ItemGroup>
+    <Compile Include="AddThemeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddThemeForm.Designer.cs">
+      <DependentUpon>AddThemeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditSuggestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSuggestions.Designer.cs">
+      <DependentUpon>EditSuggestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="SortableList.cs" />
     <Compile Include="SuggestionsDictionaryCollection.cs" />
     <Compile Include="VBA.cs">
       <SubType>Form</SubType>
@@ -216,6 +230,12 @@
     <Compile Include="VBA.Designer.cs">
       <DependentUpon>VBA.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddThemeForm.resx">
+      <DependentUpon>AddThemeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditSuggestions.resx">
+      <DependentUpon>EditSuggestions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -224,6 +244,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="AddMathRibbon.resx">
       <DependentUpon>AddMathRibbon.cs</DependentUpon>
@@ -272,9 +293,8 @@
     <Content Include="default.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="VBA.rtf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Edit.ico" />
+    <None Include="VBA.rtf" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -284,13 +304,17 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>AddMath.WordAddIn_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>A5B75AD39031A9C5A86E331AE58FA260E6CF8301</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -302,7 +326,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Word" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Word" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\Word\InstallRoot\Path#WINWORD.EXE" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
         <Host Name="Word" GeneratedCodeNamespace="AddMath.WordAddIn" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" PublishedHash="F64523D151BE0EB8B8A56D6BC271EB1A2B2C7545" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" PublishedHash="16E6538930F1A8D527F27F7C6A71D6480C122F2A" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>

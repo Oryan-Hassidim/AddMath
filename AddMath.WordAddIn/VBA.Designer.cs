@@ -44,11 +44,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VbaCodeTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tableLayoutPanel1.SetColumnSpan(this.VbaCodeTextBox, 3);
             this.VbaCodeTextBox.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.VbaCodeTextBox.Location = new System.Drawing.Point(12, 134);
+            this.VbaCodeTextBox.Location = new System.Drawing.Point(3, 134);
             this.VbaCodeTextBox.Name = "VbaCodeTextBox";
             this.VbaCodeTextBox.ReadOnly = true;
-            this.VbaCodeTextBox.Size = new System.Drawing.Size(661, 244);
+            this.VbaCodeTextBox.Size = new System.Drawing.Size(679, 257);
             this.VbaCodeTextBox.TabIndex = 0;
             this.VbaCodeTextBox.Text = "";
             // 
@@ -57,9 +58,9 @@
             this.CopyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CopyButton.Location = new System.Drawing.Point(3, 3);
+            this.CopyButton.Location = new System.Drawing.Point(3, 397);
             this.CopyButton.Name = "CopyButton";
-            this.CopyButton.Size = new System.Drawing.Size(214, 48);
+            this.CopyButton.Size = new System.Drawing.Size(222, 50);
             this.CopyButton.TabIndex = 1;
             this.CopyButton.Text = "Copy To Clipboard";
             this.CopyButton.UseVisualStyleBackColor = true;
@@ -70,9 +71,9 @@
             this.OkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.OkButton.Location = new System.Drawing.Point(443, 3);
+            this.OkButton.Location = new System.Drawing.Point(459, 397);
             this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(215, 48);
+            this.OkButton.Size = new System.Drawing.Size(223, 50);
             this.OkButton.TabIndex = 2;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
@@ -83,9 +84,9 @@
             this.OpenVbaEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenVbaEditor.Location = new System.Drawing.Point(223, 3);
+            this.OpenVbaEditor.Location = new System.Drawing.Point(231, 397);
             this.OpenVbaEditor.Name = "OpenVbaEditor";
-            this.OpenVbaEditor.Size = new System.Drawing.Size(214, 48);
+            this.OpenVbaEditor.Size = new System.Drawing.Size(222, 50);
             this.OpenVbaEditor.TabIndex = 3;
             this.OpenVbaEditor.Text = "Open VBA Editor";
             this.OpenVbaEditor.UseVisualStyleBackColor = true;
@@ -93,33 +94,37 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.CopyButton, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.OkButton, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.OpenVbaEditor, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 384);
+            this.tableLayoutPanel1.Controls.Add(this.richTextBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.CopyButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.OpenVbaEditor, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.VbaCodeTextBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.OkButton, 2, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(661, 54);
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(685, 450);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tableLayoutPanel1.SetColumnSpan(this.richTextBox1, 3);
             this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(15, 12);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(655, 116);
+            this.richTextBox1.Size = new System.Drawing.Size(679, 125);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.TabStop = false;
             this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
@@ -129,9 +134,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 450);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.VbaCodeTextBox);
             this.Name = "VBA";
             this.Text = "VBA";
             this.Load += new System.EventHandler(this.VBA_Load);

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,7 @@ namespace AddMath.WordAddIn
 
         private void VBA_Load(object sender, EventArgs e)
         {
-            VbaCodeTextBox.Rtf = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())), @"VBA.rtf"));
+            VbaCodeTextBox.Rtf = Properties.Resources.VBA;
         }
 
         private void OkButton_Click(object sender, EventArgs e)

@@ -39,7 +39,7 @@
             this.AddMathButton = this.Factory.CreateRibbonButton();
             this.EditSuggestionsButton = this.Factory.CreateRibbonButton();
             this.InitializeButton = this.Factory.CreateRibbonButton();
-            this.theme = this.Factory.CreateRibbonDropDown();
+            this.ThemeDropBox = this.Factory.CreateRibbonDropDown();
             this.tab1.SuspendLayout();
             this.AddMathGroup.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             this.AddMathGroup.Items.Add(this.AddMathButton);
             this.AddMathGroup.Items.Add(this.EditSuggestionsButton);
             this.AddMathGroup.Items.Add(this.InitializeButton);
-            this.AddMathGroup.Items.Add(this.theme);
+            this.AddMathGroup.Items.Add(this.ThemeDropBox);
             this.AddMathGroup.KeyTip = "M";
             this.AddMathGroup.Label = "Add Math";
             this.AddMathGroup.Name = "AddMathGroup";
@@ -73,6 +73,7 @@
             // 
             // EditSuggestionsButton
             // 
+            this.EditSuggestionsButton.KeyTip = "E";
             this.EditSuggestionsButton.Label = "Edit Suggestions";
             this.EditSuggestionsButton.Name = "EditSuggestionsButton";
             this.EditSuggestionsButton.OfficeImageId = "EditExpression";
@@ -82,15 +83,18 @@
             // 
             // InitializeButton
             // 
+            this.InitializeButton.KeyTip = "I";
             this.InitializeButton.Label = "Initialize Shortcuts";
             this.InitializeButton.Name = "InitializeButton";
             this.InitializeButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.InitializeButton_Click);
             // 
-            // theme
+            // ThemeDropBox
             // 
-            this.theme.Label = "Theme";
-            this.theme.Name = "theme";
-            this.theme.ShowLabel = false;
+            this.ThemeDropBox.KeyTip = "T";
+            this.ThemeDropBox.Label = "Theme";
+            this.ThemeDropBox.Name = "ThemeDropBox";
+            this.ThemeDropBox.SizeString = "Default 2";
+            this.ThemeDropBox.SelectionChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ThemeDropBox_SelectionChanged);
             // 
             // AddMathRibbon
             // 
@@ -113,7 +117,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton AddMathButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton EditSuggestionsButton;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton InitializeButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonDropDown theme;
+        internal Microsoft.Office.Tools.Ribbon.RibbonDropDown ThemeDropBox;
     }
 
     partial class ThisRibbonCollection
