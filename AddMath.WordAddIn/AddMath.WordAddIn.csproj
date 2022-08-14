@@ -290,9 +290,9 @@
       <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
     </Compile>
     <AppDesigner Include="Properties\" />
-    <Content Include="default.txt">
+    <Resource Include="default.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </Resource>
     <Content Include="Edit.ico" />
     <None Include="VBA.rtf" />
   </ItemGroup>

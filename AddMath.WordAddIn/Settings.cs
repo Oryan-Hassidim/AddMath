@@ -38,10 +38,10 @@ namespace AddMath.WordAddIn.Properties
                 }
                 if (Suggestions.Count < 1)
                 {
-                    var defaultCsv = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())), @"default.txt"));
+                    var defaultCsv = Resources._default;
                     var def = new SuggestionsDictionary(Csv.CsvReader.ReadFromText(@defaultCsv)
                         .ToDictionary(r => r.Values[0], r => r.Values[1]));
-                    Suggestions.Add("default", def);
+                    Suggestions.Add("Default", def);
                     Save();
                 }
                 return Suggestions;

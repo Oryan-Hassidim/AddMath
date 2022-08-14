@@ -61,8 +61,45 @@ namespace AddMath.WordAddIn.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {\rtf1\adeflang1037\ansi\ansicpg1255\uc1\adeff42\deff0\stshfdbch42\stshfloch31506\stshfhich31506\stshfbi31507\deflang1033\deflangfe1033\themelang1033\themelangfe0\themelangcs1037{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f2\fbidi \fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
-        ///{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}{\f42\fbidi \fswiss\fcharset0\fprq2{\*\panose 00000000000000000000}FrankRuehl;} [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to key,suggestion
+        ///v (וקטור),\vec  
+        ///vec (וקטור),\vec  
+        ///v2 (וקטור 2),[■(@)] 
+        ///v3 (וקטור 3),[■(@@)] 
+        ///a (α),α
+        ///b (β),β
+        ///l (λ),λ
+        ///. (⋅),⋅
+        ///sqrt (√),√
+        ///atop (¦),¦
+        ///circ (∘),∘
+        ///hat (וקטור יחידה ̂x),\hat  
+        ///&amp; (וגם ∧),∧
+        ///| (או ∨),∨
+        ///U (איחוד ∪),∪
+        ///^ (חיתוך ∩),∩
+        ///F (שדה כלשהו F),\doubleF 
+        ///R (ממשיים ℝ),ℝ
+        ///R+ (ממשיים ℝ),ℝ^+ 
+        ///N (טבעיים ℕ),ℕ
+        ///Z (שלמים Z),\doubleZ 
+        ///above (\above),┴
+        ///&quot;xyz (וקטור x,y,z)&quot;,[■(x@y@z)] 
+        ///dot ( ̇ ),\dot  
+        ///ddot ( ̈ ),\ddot  
+        ///matrix (מטריצה ריקה),■(
+        ///&quot;propto (פרופוציאונלי ל, ∝)&quot;,∝
+        ///forall (∀ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _default {
+            get {
+                return ResourceManager.GetString("_default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {\rtf1\adeflang1037\ansi\ansicpg1255\uc1\adeff42\deff0\stshfdbch0\stshfloch31506\stshfhich31506\stshfbi0\deflang1033\deflangfe1033\themelang1033\themelangfe0\themelangcs1037{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f2\fbidi \fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
+        ///{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}{\f42\fbidi \fswiss\fcharset0\fprq2{\*\panose 00000000000000000000}FrankRuehl;}{\f44 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string VBA {
             get {

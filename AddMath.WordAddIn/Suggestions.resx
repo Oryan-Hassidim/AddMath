@@ -157,7 +157,7 @@
     <value>28</value>
   </data>
   <data name="SuggestionsList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 43</value>
+    <value>3, 36</value>
   </data>
   <data name="SuggestionsList.Size" type="System.Drawing.Size, System.Drawing">
     <value>416, 424</value>
@@ -228,28 +228,28 @@
   <data name="&gt;&gt;OKButton.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="CancelButton.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>198, 616</value>
   </data>
-  <data name="CancelButton.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 45</value>
   </data>
-  <data name="CancelButton.TabIndex" type="System.Int32, mscorlib">
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="CancelButton.Text" xml:space="preserve">
+  <data name="cancelButton.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="&gt;&gt;CancelButton.Name" xml:space="preserve">
-    <value>CancelButton</value>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
   </data>
-  <data name="&gt;&gt;CancelButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CancelButton.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;CancelButton.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
