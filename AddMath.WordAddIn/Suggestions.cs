@@ -25,9 +25,10 @@ namespace AddMath.WordAddIn
 
         public string Theme { get; set; }
 
-        private async Task loadSuggestions()
+        private void loadSuggestions()
         {
             _Suggestions.Clear();
+            Settings.Default.Reload();
             foreach (var kv in Settings.Default.SelectedSuggestions)
             {
                 _Suggestions.Add(new() { Text = kv.Key, Type = SuggestionType.Text }, kv.Value);
@@ -49,9 +50,9 @@ namespace AddMath.WordAddIn
         }
         private async void Suggestions_Load(object sender, EventArgs e)
         {
-            await loadSuggestions();
-            Settings.Default.SelectedSuggestionsChanged += async (s, e) => await loadSuggestions();
-            Settings.Default.SettingsSaving += async (s, e) => await loadSuggestions();
+            loadSuggestions();
+            Settings.Default.SelectedSuggestionsChanged += (s, e) => loadSuggestions();
+            Settings.Default.SettingsSaving += (s, e) => loadSuggestions();
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -67,7 +68,12 @@ namespace AddMath.WordAddIn
             Font = new Font(Font.FontFamily, instance.Selection.Font.Size * zoom * 0.9f, Font.Style, GraphicsUnit.Point, Font.GdiCharSet, Font.GdiVerticalFont);
             Top = top - 5;
             Left = left - 5;
+            SearchTextBox.Clear();
             SearchTextBox.Focus();
+            if (SuggestionsList.Items.Count > 0)
+            {
+                SuggestionsList.SelectedIndex = 0;
+            }
         }
         private void Suggestions_Deactivate(object sender, EventArgs e)
         {
@@ -218,11 +224,21 @@ namespace AddMath.WordAddIn
         #region SuggestionsList
         private void SuggestionsList_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up && SuggestionsList.SelectedIndex == 0)
+            switch (e.KeyCode)
             {
-                SearchTextBox.Focus();
-                e.Handled = true;
-                e.SuppressKeyPress = true;
+                case Keys.Up when SuggestionsList.SelectedIndex == 0:
+                    SearchTextBox.Focus();
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
+                    break;
+                case Keys.Escape:
+                case Keys.Back:
+                    Hide();
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
+                    break;
+                default:
+                    break;
             }
         }
         private void SuggestionsList_DoubleClick(object sender, EventArgs e)
@@ -300,7 +316,7 @@ namespace AddMath.WordAddIn
                         {
                             Settings.Default.SelectedSuggestions.Add(t, t);
                             Settings.Default.Save();
-                            await loadSuggestions();
+                            loadSuggestions();
                         }
                     }
                 }

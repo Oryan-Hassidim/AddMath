@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
@@ -7,44 +6,30 @@ using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
 using System.Runtime.InteropServices;
+using AddMath.WordAddIn.Properties;
+using System.Windows.Forms;
 
 namespace AddMath.WordAddIn
 {
 
-    [ComVisible(true)]
-    public interface IAddMathObject
-    {
-        void AddMath();
-    }
-
-
-    [ComVisible(true)]
-    [ClassInterface(ClassInterfaceType.None)]
-    public class AddMathObject : IAddMathObject, IDisposable
-    {
-        private Suggestions _suggestions;
-        private Suggestions Suggestions => _suggestions ??= new Suggestions();
-        public string Theme
-        {
-            get => _suggestions.Theme;
-            set => _suggestions.Theme = value;
-        }
-        public void AddMath()
-        {
-            Suggestions.Show();
-            Suggestions.Activate();
-        }
-
-        public void Dispose()
-        {
-            _suggestions?.Dispose();
-        }
-    }
     public partial class ThisAddIn
     {
-
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            if (Settings.Default.Suggestions is null)
+            {
+                Settings.Default.Suggestions = new();
+            }
+            if (Settings.Default.Suggestions.Count < 1)
+            {
+                var defaultCsv = Resources._default;
+                var def = new SuggestionsDictionary(Csv.CsvReader.ReadFromText(@defaultCsv)
+                    .ToDictionary(r => r.Values[0], r => r.Values[1]));
+                Settings.Default.Suggestions.Add("Default", def);
+                Settings.Default.Selected = "Default";
+                Settings.Default.Save();
+                Settings.Default.Reload();
+            }
         }
 
         private AddMathObject addMathObject = new AddMathObject();

@@ -27,26 +27,7 @@ namespace AddMath.WordAddIn.Properties
 
         }
 
-        public SuggestionsDictionaryCollection SuggestionsDictionary
-        {
-            get
-            {
-                if (Suggestions is null)
-                {
-                    var s = Application.LocalUserAppDataPath;
-                    Suggestions = new();
-                }
-                if (Suggestions.Count < 1)
-                {
-                    var defaultCsv = Resources._default;
-                    var def = new SuggestionsDictionary(Csv.CsvReader.ReadFromText(@defaultCsv)
-                        .ToDictionary(r => r.Values[0], r => r.Values[1]));
-                    Suggestions.Add("Default", def);
-                    Save();
-                }
-                return Suggestions;
-            }
-        }
+        public SuggestionsDictionaryCollection SuggestionsDictionary => Suggestions;
 
         public Dictionary<string, string> SelectedSuggestions => SuggestionsDictionary[Selected];
         public event EventHandler<Dictionary<string, string>> SelectedSuggestionsChanged;

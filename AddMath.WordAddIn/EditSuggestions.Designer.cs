@@ -80,12 +80,12 @@
             this.Value});
             this.tableLayoutPanel1.SetColumnSpan(this.GridView, 4);
             this.GridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GridView.Location = new System.Drawing.Point(4, 48);
+            this.GridView.Location = new System.Drawing.Point(4, 46);
             this.GridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GridView.Name = "GridView";
             this.GridView.RowHeadersWidth = 51;
             this.GridView.RowTemplate.Height = 24;
-            this.GridView.Size = new System.Drawing.Size(886, 649);
+            this.GridView.Size = new System.Drawing.Size(886, 651);
             this.GridView.TabIndex = 0;
             // 
             // Key
@@ -109,7 +109,7 @@
             this.ThemeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ThemeComboBox.DisplayMember = "Key";
             this.ThemeComboBox.FormattingEnabled = true;
-            this.ThemeComboBox.Location = new System.Drawing.Point(157, 5);
+            this.ThemeComboBox.Location = new System.Drawing.Point(157, 8);
             this.ThemeComboBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ThemeComboBox.Name = "ThemeComboBox";
             this.ThemeComboBox.Size = new System.Drawing.Size(593, 33);
@@ -133,7 +133,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 9);
+            this.label1.Location = new System.Drawing.Point(4, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 25);
@@ -145,7 +145,7 @@
             this.AddTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.AddTheme.AutoSize = true;
             this.AddTheme.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AddTheme.Location = new System.Drawing.Point(757, 4);
+            this.AddTheme.Location = new System.Drawing.Point(757, 3);
             this.AddTheme.Name = "AddTheme";
             this.AddTheme.Size = new System.Drawing.Size(56, 35);
             this.AddTheme.TabIndex = 4;
@@ -158,7 +158,7 @@
             this.DeleteTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteTheme.AutoSize = true;
             this.DeleteTheme.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DeleteTheme.Location = new System.Drawing.Point(819, 4);
+            this.DeleteTheme.Location = new System.Drawing.Point(819, 3);
             this.DeleteTheme.Name = "DeleteTheme";
             this.DeleteTheme.Size = new System.Drawing.Size(72, 35);
             this.DeleteTheme.TabIndex = 5;
