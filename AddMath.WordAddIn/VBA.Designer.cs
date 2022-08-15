@@ -137,6 +137,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "VBA";
             this.Text = "VBA";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.VBA_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
