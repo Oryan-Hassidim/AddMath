@@ -49,7 +49,7 @@
             this.VbaCodeTextBox.Location = new System.Drawing.Point(3, 134);
             this.VbaCodeTextBox.Name = "VbaCodeTextBox";
             this.VbaCodeTextBox.ReadOnly = true;
-            this.VbaCodeTextBox.Size = new System.Drawing.Size(679, 257);
+            this.VbaCodeTextBox.Size = new System.Drawing.Size(679, 256);
             this.VbaCodeTextBox.TabIndex = 0;
             this.VbaCodeTextBox.Text = "";
             // 
@@ -58,9 +58,9 @@
             this.CopyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.CopyButton.Location = new System.Drawing.Point(3, 397);
+            this.CopyButton.Location = new System.Drawing.Point(3, 396);
             this.CopyButton.Name = "CopyButton";
-            this.CopyButton.Size = new System.Drawing.Size(222, 50);
+            this.CopyButton.Size = new System.Drawing.Size(222, 51);
             this.CopyButton.TabIndex = 1;
             this.CopyButton.Text = "Copy To Clipboard";
             this.CopyButton.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             this.OkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.OkButton.Location = new System.Drawing.Point(459, 397);
+            this.OkButton.Location = new System.Drawing.Point(459, 396);
             this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(223, 50);
+            this.OkButton.Size = new System.Drawing.Size(223, 51);
             this.OkButton.TabIndex = 2;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
@@ -84,9 +84,9 @@
             this.OpenVbaEditor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenVbaEditor.Location = new System.Drawing.Point(231, 397);
+            this.OpenVbaEditor.Location = new System.Drawing.Point(231, 396);
             this.OpenVbaEditor.Name = "OpenVbaEditor";
-            this.OpenVbaEditor.Size = new System.Drawing.Size(222, 50);
+            this.OpenVbaEditor.Size = new System.Drawing.Size(222, 51);
             this.OpenVbaEditor.TabIndex = 3;
             this.OpenVbaEditor.Text = "Open VBA Editor";
             this.OpenVbaEditor.UseVisualStyleBackColor = true;

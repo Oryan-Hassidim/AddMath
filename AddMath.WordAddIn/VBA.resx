@@ -119,10 +119,11 @@
   </resheader>
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>To initialize using shortcuts to activate this add-in:
-    1. Open the VBA Editor.
-    2. In the "Project" Toolbar, go to "Nornal &gt; Modules".
-    3. Right Click &gt; "Insert" &gt; "Module".
-    4. Paste the code below.
+    1. Copy the code below (the first button in this window).
+    2. Open the VBA Editor (the second button).
+    3. In the "Project" Toolbar, go to "Nornal".
+    4. Right Click &gt; "Insert" &gt; "Module".
+    5. Paste the code.
     5. Click OK button here.</value>
   </data>
 </root>
