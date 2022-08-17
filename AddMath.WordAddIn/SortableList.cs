@@ -47,7 +47,7 @@ namespace AddMath.WordAddIn
                            ? ListSortDirection.Ascending
                            : sorts.PrimaryDirection;
 
-        protected override PropertyDescriptor SortPropertyCore => sorts == null ? null : sorts.PrimaryProperty;
+        protected override PropertyDescriptor SortPropertyCore => sorts?.PrimaryProperty;
 
         public void ApplySort(ListSortDescriptionCollection sortCollection)
         {
@@ -71,11 +71,6 @@ namespace AddMath.WordAddIn
                 RaiseListChangedEvents = oldRaise;
                 ResetBindings();
             }
-        }
-
-        public bool Exists(Predicate<T> func)
-        {
-            return new List<T>(this).Exists(func);
         }
 
         string IBindingListView.Filter

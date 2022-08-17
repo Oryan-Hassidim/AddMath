@@ -48,7 +48,7 @@ namespace AddMath.WordAddIn
             InitializeComponent();
             SuggestionsList.DataSource = LiveSuggestions;
         }
-        private async void Suggestions_Load(object sender, EventArgs e)
+        private void Suggestions_Load(object sender, EventArgs e)
         {
             loadSuggestions();
             Settings.Default.SelectedSuggestionsChanged += (s, e) => loadSuggestions();
@@ -295,7 +295,7 @@ namespace AddMath.WordAddIn
 
             SearchTextBox.Clear();
         }
-        public async void AddSelectedSuggestionFromList()
+        public void AddSelectedSuggestionFromList()
         {
             Hide();
 

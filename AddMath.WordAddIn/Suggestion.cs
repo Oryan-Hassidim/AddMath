@@ -10,7 +10,7 @@ namespace AddMath.WordAddIn
     }
     public class Suggestion : IEquatable<Suggestion>, IComparable<Suggestion>
     {
-        public string Text { get; set; }
+        public string Text { get; set; } = string.Empty;
         public SuggestionType Type { get; set; }
 
         public override bool Equals(object? obj)
