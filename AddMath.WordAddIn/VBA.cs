@@ -31,6 +31,8 @@ namespace AddMath.WordAddIn
             app.CustomizationContext = app.ActiveDocument.get_AttachedTemplate();
             app.KeyBindings.Add(WdKeyCategory.wdKeyCategoryMacro, "AddMathAddIn", 220);
             app.KeyBindings.Add(WdKeyCategory.wdKeyCategoryMacro, "AddSlash", app.BuildKeyCode(WdKey.wdKeyAlt, 220));
+            app.ShowVisualBasicEditor = false;
+            Close();
         }
 
         private void OpenVbaEditor_Click(object sender, EventArgs e)
