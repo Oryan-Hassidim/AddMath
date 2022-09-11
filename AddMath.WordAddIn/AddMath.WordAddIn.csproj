@@ -41,8 +41,8 @@
     <ProductName>Add Math - Word Add-In</ProductName>
     <PublisherName>Oryan Hassdim</PublisherName>
     <SupportUrl />
-    <FriendlyName>AddMath.WordAddIn</FriendlyName>
-    <OfficeApplicationDescription />
+    <FriendlyName>Add Math</FriendlyName>
+    <OfficeApplicationDescription>Word add-in which provides an intellisense for equations.</OfficeApplicationDescription>
     <LoadBehavior>3</LoadBehavior>
   </PropertyGroup>
   <ItemGroup>
@@ -317,6 +317,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <!-- Include the build rules for a C# project. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
