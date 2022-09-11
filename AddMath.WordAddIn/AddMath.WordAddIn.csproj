@@ -258,7 +258,6 @@
     <EmbeddedResource Include="VBA.resx">
       <DependentUpon>VBA.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AddMath.WordAddIn_TemporaryKey.pfx" />
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -311,7 +310,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A5B75AD39031A9C5A86E331AE58FA260E6CF8301</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>4DDA00743B3DD82FF20BD0227C504C38B9BC6BAD</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
