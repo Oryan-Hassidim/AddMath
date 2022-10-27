@@ -310,7 +310,7 @@
     </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4DDA00743B3DD82FF20BD0227C504C38B9BC6BAD</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A5B75AD39031A9C5A86E331AE58FA260E6CF8301</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>

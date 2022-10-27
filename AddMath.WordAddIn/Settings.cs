@@ -37,14 +37,23 @@ namespace AddMath.WordAddIn.Properties
             // Add code to handle the SettingChangingEvent event here.
         }
 
+        private string selected_cache;
         protected override void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnPropertyChanged(sender, e);
-            if (e.PropertyName == nameof(Selected))
+            if (e.PropertyName == nameof(Selected) && Selected != selected_cache)
             {
+                selected_cache = Selected;
                 SelectedSuggestionsChanged?.Invoke(this, SelectedSuggestions);
             }
         }
+
+        public override void Save()
+        {
+            base.Save();
+            Saved.Invoke(this, EventArgs.Empty);
+        }
+        public event EventHandler Saved;
 
         private void SettingsSavingEventHandler(object sender, System.ComponentModel.CancelEventArgs e)
         {

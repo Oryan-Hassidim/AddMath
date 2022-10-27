@@ -15,7 +15,7 @@ namespace AddMath.WordAddIn
         {
             //TODO: multi lingual
             initializeThemeItems();
-            Settings.Default.SettingsSaving += (s, e) => initializeThemeItems();
+            Settings.Default.Saved += (s, e) => initializeThemeItems();
         }
 
         private void initializeThemeItems()

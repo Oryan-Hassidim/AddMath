@@ -28,7 +28,6 @@ namespace AddMath.WordAddIn
         private void loadSuggestions()
         {
             _Suggestions.Clear();
-            Settings.Default.Reload();
             foreach (var kv in Settings.Default.SelectedSuggestions)
             {
                 _Suggestions.Add(new() { Text = kv.Key, Type = SuggestionType.Text }, kv.Value);
@@ -52,7 +51,7 @@ namespace AddMath.WordAddIn
         {
             loadSuggestions();
             Settings.Default.SelectedSuggestionsChanged += (s, e) => loadSuggestions();
-            Settings.Default.SettingsSaving += (s, e) => loadSuggestions();
+            Settings.Default.Saved += (s, e) => loadSuggestions();
         }
         protected override void OnClosing(CancelEventArgs e)
         {
@@ -76,10 +75,9 @@ namespace AddMath.WordAddIn
             }
         }
         private void Suggestions_Deactivate(object sender, EventArgs e)
-        {
+         {
             Hide();
         }
-
         private void Suggestions_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -178,6 +176,10 @@ namespace AddMath.WordAddIn
         {
             switch (e.KeyCode)
             {
+                case Keys.Enter when e.Control:
+                case Keys.Enter when e.Alt:
+                     AddNewWord();
+                    break;
                 case Keys.Enter:
                 case Keys.Tab:
                     if (LiveSuggestions.Any())
@@ -295,6 +297,36 @@ namespace AddMath.WordAddIn
 
             SearchTextBox.Clear();
         }
+        public void AddNewWord()
+        {
+            var t = SearchTextBox.Text;
+            if (newWords.ContainsKey(t))
+            {
+                newWords[t]++;
+                if (newWords[t] >= 2)
+                {
+                    var r = MessageBox.Show($"Do you want add \"{t}\" to your suggestions?", "Add new word",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question,
+                        MessageBoxDefaultButton.Button1);
+                    Hide();
+                    if (r == DialogResult.Yes)
+                    {
+                        newWords.Remove(t);
+                        Settings.Default.SelectedSuggestions.Add(t, $"\\{t} ");
+                        Settings.Default.Save();
+                        loadSuggestions();
+                    }
+                    Hide();
+                }
+            }
+            else newWords.Add(t, 1);
+            Hide();
+
+            instance.Selection.TypeText(@"\");
+            instance.Selection.TypeText(t);
+            SendKeys.SendWait(" "); 
+            SearchTextBox.Clear();
+        }
         public void AddSelectedSuggestionFromList()
         {
             Hide();
@@ -303,28 +335,7 @@ namespace AddMath.WordAddIn
                 SuggestionsList.SelectedIndex = 0;
             else if (!LiveSuggestions.Any())
             {
-                var t = SearchTextBox.Text;
-                if (newWords.ContainsKey(t))
-                {
-                    newWords[t]++;
-                    if (newWords[t] >= 2)
-                    {
-                        var r = MessageBox.Show($"Do you want add \"{t}\" to your suggestions?", "Add new word",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question,
-                            MessageBoxDefaultButton.Button1);
-                        if (r == DialogResult.Yes)
-                        {
-                            Settings.Default.SelectedSuggestions.Add(t, t);
-                            Settings.Default.Save();
-                            loadSuggestions();
-                        }
-                    }
-                }
-                else newWords.Add(t, 1);
-
-                instance.Selection.TypeText(@"\" + t);
-                SendKeys.SendWait(" ");
-                SearchTextBox.Clear();
+                AddNewWord();
                 return;
             }
 
