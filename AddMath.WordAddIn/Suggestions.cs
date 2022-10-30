@@ -1,14 +1,11 @@
 ﻿using AddMath.WordAddIn.Properties;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AddMath.WordAddIn
@@ -75,7 +72,7 @@ namespace AddMath.WordAddIn
             }
         }
         private void Suggestions_Deactivate(object sender, EventArgs e)
-         {
+        {
             Hide();
         }
         private void Suggestions_KeyDown(object sender, KeyEventArgs e)
@@ -178,7 +175,7 @@ namespace AddMath.WordAddIn
             {
                 case Keys.Enter when e.Control:
                 case Keys.Enter when e.Alt:
-                     AddNewWord();
+                    AddNewWord();
                     break;
                 case Keys.Enter:
                 case Keys.Tab:
@@ -324,7 +321,7 @@ namespace AddMath.WordAddIn
 
             instance.Selection.TypeText(@"\");
             instance.Selection.TypeText(t);
-            SendKeys.SendWait(" "); 
+            SendKeys.SendWait(" ");
             SearchTextBox.Clear();
         }
         public void AddSelectedSuggestionFromList()

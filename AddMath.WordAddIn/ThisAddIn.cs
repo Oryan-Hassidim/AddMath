@@ -1,13 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AddMath.WordAddIn.Properties;
 using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using Word = Microsoft.Office.Interop.Word;
-using Office = Microsoft.Office.Core;
-using Microsoft.Office.Tools.Word;
-using System.Runtime.InteropServices;
-using AddMath.WordAddIn.Properties;
-using System.Windows.Forms;
 
 namespace AddMath.WordAddIn
 {
@@ -39,7 +31,7 @@ namespace AddMath.WordAddIn
         {
             return AddMathObject;
         }
-        
+
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
             addMathObject.Dispose();
@@ -56,7 +48,7 @@ namespace AddMath.WordAddIn
             Startup += ThisAddIn_Startup;
             Shutdown += ThisAddIn_Shutdown;
         }
-        
+
         #endregion
     }
 }

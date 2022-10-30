@@ -1,10 +1,5 @@
 ﻿using AddMath.WordAddIn.Properties;
-using Microsoft.Office.Interop.Word;
 using Microsoft.Office.Tools.Ribbon;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace AddMath.WordAddIn
@@ -28,7 +23,7 @@ namespace AddMath.WordAddIn
                 ThemeDropBox.Items.Add(ribbonItem);
                 if (Settings.Default.Selected == item)
                     ThemeDropBox.SelectedItem = ribbonItem;
-            }            
+            }
         }
 
         private void AddMathButton_Click(object sender, RibbonControlEventArgs e)

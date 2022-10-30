@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AddMath.WordAddIn
 {
@@ -179,5 +177,5 @@ namespace AddMath.WordAddIn
                                                  property.GetValue(y));
             return descending ? -value : value;
         }
-    }   
+    }
 }
